@@ -24,8 +24,8 @@ const Navbar = () => {
           <ul className="list-none hidden sm:flex flex-row gap-10">
             {navLinks.map((link) => (
               <li key={link.id} className={`${
-                active === link.title? "text-white" : "text-secondary"} 
-                hover:text-white text-[18px] capitalize font-medium cursor-pointer transition-all duration-300 ease-in-out
+                active === link.title? "text-teal-dark" : "text-secondary"} 
+                hover:text-teal-dark text-[18px] capitalize font-medium cursor-pointer transition-all duration-300 ease-in-out
                 `}
                 onClick={() => {
                   setActive(link.title);
