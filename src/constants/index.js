@@ -21,7 +21,6 @@ import {
     shopify,
     storyVision,
     flashi,
-    tripguide,
     threejs,
   } from "../assets";
   
@@ -170,7 +169,7 @@ import {
     },
     {
       title: "Tech Lead",
-      company_name: "CITi",
+      company_name: "CITi (junior enterprise)",
       icon: meta,
       iconBg: "#E6DEDD",
       date: "Jan 2023 - June 2023",
