@@ -31,7 +31,7 @@ const Navbar = () => {
                   setActive(link.title);
                 }}
                 >
-                <a href={`#${link.id}`}>{link.id}</a>
+                <a href={`#${link.id}`}>{link.title}</a>
               </li>
               ))}
           </ul>  
@@ -51,7 +51,7 @@ const Navbar = () => {
                           setToggle(!toggle);
                           setActive(link.title);
                         }}>
-                        <a href={`#${link.id}`}>{link.id}</a>
+                        <a href={`#${link.id}`}>{link.title}</a>
                       </li>
                       ))}
                   </ul> 

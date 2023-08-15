@@ -5,7 +5,7 @@ import { motion } from "framer-motion"
 import { styles } from "../styles"
 import { github } from "../assets"
 import { SectionWrapper } from "../hoc"
-import { projects } from "../constants"
+import { projects, projectsText } from "../constants"
 import { fadeIn, textVariant } from "../utils/motion"
 
 
@@ -49,21 +49,19 @@ const Works = () => {
   return (
     <>
       <motion.div variants={textVariant()}>
-        <p className={styles.sectionSubText}>My work</p>
-        <h2 className={styles.sectionHeadText}>Projects.</h2>
+        <p className={styles.sectionSubText}>{projectsText.subtitle}</p>
+        <h2 className={styles.sectionHeadText}>{projectsText.title}</h2>
       </motion.div>
 
       <div className="w-full flex">
         <motion.p 
         variants={fadeIn("", "", 0.1, 1)} 
         className="text-secondary text-[17px] max-w-3xl leading-[30px]">
-          Following projects showcase my skills and experience in development through real world examples of my work.
-          Each project has a link to the source code on Github and a link to the live version of the project.
-          It reflects my ability to solve complex problems, experience with different technologies and my passion for learning new things.
+          {projectsText.description}
         </motion.p>
       </div>
 
-      <div className="mt-20 flex flex-wrap gap-7">
+      <div className="mt-20 flex justify-center flex-wrap gap-7">
         {projects.map((project, index) => (
           <ProjectCard key={`project-${index}`} index={index} {...project} />
         ))}

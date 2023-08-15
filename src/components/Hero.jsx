@@ -2,6 +2,9 @@ import { motion } from 'framer-motion'
 import { styles } from '../styles'
 import { ComputersCanvas } from './canvas'
 import { BiChevronsDown } from "react-icons/bi";
+import ReactTyped from "react-typed";
+import { heroText } from '../constants'
+
 
 import { useState, useEffect } from 'react'
 
@@ -35,10 +38,10 @@ const Hero = () => {
         </div>
         <div>
           <h1 className={`${styles.heroHeadText} text-white`}>
-            Hi, i'm <span className="text-[#00dddd]">Maike</span>
+            {heroText.title}<span className="text-[#00dddd]">{heroText.name}</span>
           </h1>
           <p className={`${styles.heroSubText} mt-2 text-white-100`}>
-            I develop user interfaces, web applications, <br/> optimizations and mobile apps
+            {heroText.text1}<ReactTyped strings={heroText.text2} typeSpeed={50} loop/>
           </p>
         </div>
       </div>
@@ -46,7 +49,7 @@ const Hero = () => {
         <div className='absolute xs:bottom-50  bottom-20 sm:bottom-[-60px] w-full flex justify-center items-center'>
           <a href="#about" className='cursor-pointer'>
             <div className={`${isMobile? 'flex': 'hidden'} flex flex-col justify-center items-center p-2`}>
-              <p>Click to scroll down</p>
+              <p>{heroText.text3}</p>
               <motion.div
                 animate={{ y: [0, 12, 0] }}
                 transition={{ duration: 1.5, repeat: Infinity, repeatType: 'loop', ease: 'easeInOut' }}

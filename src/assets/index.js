@@ -21,13 +21,17 @@ import tailwind from "./tech/tailwind.png";
 import typescript from "./tech/typescript.png";
 import threejs from "./tech/threejs.svg";
 
-import meta from "./company/meta.png";
-import shopify from "./company/shopify.png";
-import starbucks from "./company/starbucks.png";
-import tesla from "./company/tesla.png";
+import citi from "./company/citi.png";
+import facilit from "./company/facilit.png";
+import seedabit from "./company/seedabit.png";
 
 import storyVision from "./story-vision.png";
 import flashi from "./flashi.png";
+
+import karina from "./karina.jpeg";
+import jona from "./jona.jpeg";
+import soph from "./soph.jpeg";
+import bea from "./bea.jpeg";
 
 
 
@@ -54,10 +58,14 @@ export {
   tailwind,
   typescript,
   threejs,
-  meta,
-  shopify,
-  starbucks,
-  tesla,
+  citi,
+  facilit,
+  seedabit,
   storyVision,
   flashi,
+  karina,
+  jona,
+  soph,
+  bea
+
 };
