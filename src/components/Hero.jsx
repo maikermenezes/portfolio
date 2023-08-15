@@ -2,7 +2,6 @@ import { motion } from 'framer-motion'
 import { styles } from '../styles'
 import { ComputersCanvas } from './canvas'
 import { BiChevronsDown } from "react-icons/bi";
-import ReactTyped from "react-typed";
 import { heroText } from '../constants'
 
 
@@ -41,7 +40,7 @@ const Hero = () => {
             {heroText.title}<span className="text-[#00dddd]">{heroText.name}</span>
           </h1>
           <p className={`${styles.heroSubText} mt-2 text-white-100`}>
-            {heroText.text1}<ReactTyped strings={heroText.text2} typeSpeed={50} loop/>
+            {heroText.text1} {heroText.text2}
           </p>
         </div>
       </div>
