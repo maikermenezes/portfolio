@@ -346,7 +346,8 @@ const heroText = {
   title: "Oi, eu sou ",
   name: "Maike",
   text1: "Eu desenvolvo ",
-  text2: [ "aplicações web", "aplicativos mobile", "aplicações backend"], 
+  // text2: [ "aplicações web", "aplicativos mobile", "aplicações backend"], 
+  text2: "aplicações web, aplicativos mobile e aplicações backend", 
   text3: "Clique para próxima seção",
 }
 
