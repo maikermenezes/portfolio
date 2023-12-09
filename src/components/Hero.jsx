@@ -3,14 +3,32 @@ import { styles } from '../styles'
 import { ComputersCanvas } from './canvas'
 import { BiChevronsDown } from "react-icons/bi";
 import { heroText } from '../constants'
+import Typed from "typed.js";
 
-
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 
 
 const Hero = () => {
 
   const [isMobile, setIsMobile] = useState(false)
+
+  const element = useRef(null);
+
+  useEffect(() => {
+    const typed = new Typed(element.current, {
+      strings: [`${heroText.text21}`, `${heroText.text22}`, `${heroText.text23}`], 
+      startDelay: 300,
+      typeSpeed: 50,
+      backSpeed: 100,
+      backDelay: 100,
+      loop: true
+    });
+
+    // Destropying
+    return () => {
+      typed.destroy();
+    };
+  }, []);
 
   useEffect(() => {
     const mediaQuery = window.matchMedia('(max-width: 768px)')
@@ -40,7 +58,7 @@ const Hero = () => {
             {heroText.title}<span className="text-[#00dddd]">{heroText.name}</span>
           </h1>
           <p className={`${styles.heroSubText} mt-2 text-white-100`}>
-            {heroText.text1} {heroText.text2}
+          {heroText.text1} <span ref={element}></span>
           </p>
         </div>
       </div>
