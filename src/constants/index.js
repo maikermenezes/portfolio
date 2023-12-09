@@ -129,29 +129,31 @@ const technologies = [
 
 const experiences = [
   {
-    title: "Desenvolvedor Front-end",
-    company_name: "Seed a Bit (empresa júnior)",
-    icon: seedabit,
-    iconBg: "#E6DEDD",
-    date: "Novembro 2020 - Setembro 2021",
-    points: [
-      "Desenvolvimento e manutenção de aplicações web com javascript puro e outras tecnologias relacionadas.",
-      "Colaboração com times multi-disciplinares que incluiam designers, gerentes de produto e outros desenvolvedores usando Scrum.",
-      "Implementação de design responsivo.",
-      "Participação em revisão de código e passagem de feedbacks a outros desenvolvedores.",
-    ],
-  },
-  {
-    title: "Estágio em Desenvolvimento Web",
+    title: "Full stack Developer",
     company_name: "Facilit Technollgia SA",
     icon: facilit,
     iconBg: "#E6DEDD",
-    date: "Abril 2021 - Outubro 2021",
+    date: "November 2021 - Atualmente",
     points: [
-      "Desenvolvimento e manuteção de uma plataforma SaaS usando primariamente Angularjs, JQuery, Java, and outras tecnologias relacionadas.",
-      "Responsável por algumas implementações de interfaces e novas funcionalidades.",
-      "Implementação de design responsivo levando em consideração compatibilidade com múltiplas plataformas.",
-      "Prover documentação para fluxos de trabalho e processos."
+      "Responsável pela implementação de importantes funcionalidades de front-end em uma plataforma SaaS que são usadas por dezenas de milhares de clientes diáriamente.",
+      "Responsável pela análise de viabilidade e implementação de uma migração tecnológica de Angularjs para React.",
+      "Liderando a implementação de design systems.",
+      "Participação ativa no planejamento e desenvolvimento de funcionalidades.",
+      "Refatoração de funcionalidades legadas, juntamente com novas interfaces e manutenção.",
+    ],
+  },
+  {
+    title: "Líder de Desenvolvimento",
+    company_name: "CITi (empresa júnior)",
+    icon: citi,
+    iconBg: "#E6DEDD",
+    date: "Janeiro 2023 - Junho 2023",
+    points: [
+      "Responsável por providenciar treinamento apropriado para novos membros da equipe.",
+      "Liderança de múltiplos times e projetos dentro da empresa.",
+      "Frequente comunicação com stakeholders para garantir o sucesso de cada projeto.",
+      "Responsável pelo planejamento tático e estratégico (usando OKR) do time de desenvolvimento, asism como a implementação de metodologias e ações para melhorar a performance do time.",
+      "Participação em code review e provimento de feedback para desenvolvedores do time.",
     ],
   },
   {
@@ -170,33 +172,32 @@ const experiences = [
     ],
   },
   {
-    title: "Líder de Desenvolvimento",
-    company_name: "CITi (empresa júnior)",
-    icon: citi,
-    iconBg: "#E6DEDD",
-    date: "Janeiro 2023 - Junho 2023",
-    points: [
-      "Responsável por providenciar treinamento apropriado para novos membros da equipe.",
-      "Liderança de múltiplos times e projetos dentro da empresa.",
-      "Frequente comunicação com stakeholders para garantir o sucesso de cada projeto.",
-      "Responsável pelo planejamento tático e estratégico (usando OKR) do time de desenvolvimento, asism como a implementação de metodologias e ações para melhorar a performance do time.",
-      "Participação em code review e provimento de feedback para desenvolvedores do time.",
-    ],
-  },
-  {
-    title: "Full stack Developer",
+    title: "Estágio em Desenvolvimento Web",
     company_name: "Facilit Technollgia SA",
     icon: facilit,
     iconBg: "#E6DEDD",
-    date: "November 2021 - Atualmente",
+    date: "Abril 2021 - Outubro 2021",
     points: [
-      "Responsável pela implementação de importantes funcionalidades de front-end em uma plataforma SaaS que são usadas por dezenas de milhares de clientes diáriamente.",
-      "Responsável pela análise de viabilidade e implementação de uma migração tecnológica de Angularjs para React.",
-      "Liderando a implementação de design systems.",
-      "Participação ativa no planejamento e desenvolvimento de funcionalidades.",
-      "Refatoração de funcionalidades legadas, juntamente com novas interfaces e manutenção.",
+      "Desenvolvimento e manuteção de uma plataforma SaaS usando primariamente Angularjs, JQuery, Java, and outras tecnologias relacionadas.",
+      "Responsável por algumas implementações de interfaces e novas funcionalidades.",
+      "Implementação de design responsivo levando em consideração compatibilidade com múltiplas plataformas.",
+      "Prover documentação para fluxos de trabalho e processos."
     ],
   },
+  {
+    title: "Desenvolvedor Front-end",
+    company_name: "Seed a Bit (empresa júnior)",
+    icon: seedabit,
+    iconBg: "#E6DEDD",
+    date: "Novembro 2020 - Setembro 2021",
+    points: [
+      "Desenvolvimento e manutenção de aplicações web com javascript puro e outras tecnologias relacionadas.",
+      "Colaboração com times multi-disciplinares que incluiam designers, gerentes de produto e outros desenvolvedores usando Scrum.",
+      "Implementação de design responsivo.",
+      "Participação em revisão de código e passagem de feedbacks a outros desenvolvedores.",
+    ],
+  },
+ 
 ];
 
 const testimonials = [
@@ -346,8 +347,9 @@ const heroText = {
   title: "Oi, eu sou ",
   name: "Maike",
   text1: "Eu desenvolvo ",
-  // text2: [ "aplicações web", "aplicativos mobile", "aplicações backend"], 
-  text2: "aplicações web, aplicativos mobile e aplicações backend", 
+  text21: "aplicações web", 
+  text22: " aplicativos mobile", 
+  text23: " aplicações backend", 
   text3: "Clique para próxima seção",
 }
 
