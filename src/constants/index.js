@@ -167,7 +167,7 @@ const experiences = { 'pt': [
     points: [
       "Responsável pela implementação de importantes funcionalidades de front-end em uma plataforma SaaS que são usadas por dezenas de milhares de clientes diáriamente.",
       "Responsável pela análise de viabilidade e implementação de uma migração tecnológica de Angularjs para React.",
-      "Liderando a implementação de design systems.",
+      "À frente da implementação de design systems.",
       "Participação ativa no planejamento e desenvolvimento de funcionalidades.",
       "Refatoração de funcionalidades legadas, juntamente com novas interfaces e manutenção.",
     ],
@@ -235,15 +235,15 @@ const experiences = { 'pt': [
       iconBg: "#E6DEDD",
       date: "November 2021 - Currently",
       points: [
-        "Responsible for the implementation of important front-end features in a SaaS platform that are used by tens of thousands of customers daily.",
+        "Responsible for the implementation of crucial front-end features in a SaaS platform that is used by tens of thousands of customers daily.",
         "Responsible for the feasibility analysis and implementation of a technological migration from Angularjs to React.",
         "Leading the implementation of design systems.",
-        "Active participation in the planning and development of features.",
+        "Active participation in the planning and development of new features.",
         "Refactoring of legacy features, along with new interfaces and maintenance.",
       ],
     },
     {
-      title: "Development Leader",
+      title: "Tech Lead",
       company_name: "CITi (junior enterprise)",
       icon: citi,
       iconBg: "#E6DEDD",
