@@ -4,11 +4,24 @@ import { Link } from 'react-router-dom'
 import  { styles } from '../styles'
 import  { navLinks} from '../constants'
 import { logo, menu, close } from '../assets'
+import Flag from 'react-flagkit';
+
+import { useSelector, useDispatch } from 'react-redux'
 
 const Navbar = () => {
 
   const [active, setActive] = useState("")
   const [toggle, setToggle] = useState(false)
+
+  const language = useSelector(state => state.language)
+  const dispatch = useDispatch();
+
+  const navBarLinks = navLinks[language]
+
+  const switchLanguage = () => {
+    const newLanguage = language === 'pt' ? 'en' : 'pt'
+    dispatch({type: 'CHANGE_LANGUAGE', payload: newLanguage})
+  }
 
   return (
       <nav className={`${styles.paddingX} w-full flex items-center py-5 fixed top-0 z-20 bg-primary`}>
@@ -22,7 +35,11 @@ const Navbar = () => {
             <p className="text-white text-[18px] font-bold cursor-pointer">Maike Menezes</p>
           </Link>
           <ul className="list-none hidden sm:flex flex-row gap-10">
-            {navLinks.map((link) => (
+          <button className='flex gap-4 items-center' onClick={switchLanguage}>
+            <Flag className="rounded-full" country={language === 'pt' ? 'BR' : 'GB'} size={32} />
+            {language === 'pt' ? 'BR' : 'ENG'}
+          </button>
+            {navBarLinks.map((link) => (
               <li key={link.id} className={`${
                 active === link.title? "text-teal-dark" : "text-secondary"} 
                 hover:text-teal-dark text-[18px] capitalize font-medium cursor-pointer transition-all duration-300 ease-in-out
@@ -42,7 +59,7 @@ const Navbar = () => {
                 }/>
                 <div className={`${toggle ? 'flex' : 'hidden'} p-6 black-gradient absolute top-20 right-0 mx-4 my-2 min-w-[140px] z-10 rounded-x1`}>
                   <ul className="list-none flex flex-col gap-4 justify-end items-start">
-                    {navLinks.map((link) => (
+                    {navBarLinks.map((link) => (
                       <li key={link.id} className={`${
                         active === link.title? "text-white" : "text-secondary"} 
                         hover:text-white text-[16px] capitalize font-medium cursor-pointer transition-all duration-300 ease-in-out
