@@ -2,19 +2,22 @@ import { motion } from 'framer-motion'
 import { styles } from '../styles'
 import { ComputersCanvas } from './canvas'
 import { BiChevronsDown } from "react-icons/bi";
-import { heroText } from '../constants'
 import Typed from "typed.js";
+import { useSelector } from 'react-redux'
 
 import { useState, useEffect, useRef } from 'react'
 
 
-const Hero = () => {
+const Hero = ({heroText}) => {
+
+  const language = useSelector(state => state.language)
 
   const [isMobile, setIsMobile] = useState(false)
 
   const element = useRef(null);
 
   useEffect(() => {
+
     const typed = new Typed(element.current, {
       strings: [`${heroText.text21}`, `${heroText.text22}`, `${heroText.text23}`], 
       startDelay: 300,
@@ -24,11 +27,10 @@ const Hero = () => {
       loop: true
     });
 
-    // Destropying
     return () => {
       typed.destroy();
     };
-  }, []);
+  }, [language]);
 
   useEffect(() => {
     const mediaQuery = window.matchMedia('(max-width: 768px)')

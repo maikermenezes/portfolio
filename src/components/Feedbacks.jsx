@@ -4,6 +4,7 @@ import { styles } from '../styles'
 import { SectionWrapper } from '../hoc'
 import { fadeIn, textVariant } from "../utils/motion" 
 import { testimonials, feedbackText } from '../constants'
+import { useSelector } from 'react-redux'
 
 
 const FeedbackCard = ({ name, designation, company, image, index, testimonial, preposition }) => (
@@ -29,21 +30,24 @@ const FeedbackCard = ({ name, designation, company, image, index, testimonial, p
 
 
 const Feedbacks = () => {
+
+  const language = useSelector(state => state.language)
+
   return (
     <div className="mt-12 bg-black-100 rounded-[20px]">
         <div className={`${styles.padding} bg-tertiary rounded-2xl min-h-[300px]`}>
           <motion.div 
           variants={textVariant} >
             <p className={styles.sectionSubText}>
-              {feedbackText.subtitle}
+              {feedbackText[language].subtitle}
             </p>
             <h2 className={styles.sectionHeadText}>
-              {feedbackText.title}
+              {feedbackText[language].title}
             </h2>
           </motion.div>
         </div>
         <div className={`${styles.paddingX} -mt-20 pb-14 flex justify-center flex-wrap gap-7`}>
-          {testimonials.map((testimonial, index) => (
+          {testimonials[language].map((testimonial, index) => (
             <FeedbackCard key={testimonial.name} index={index} {...testimonial} />
           ))}
         </div>

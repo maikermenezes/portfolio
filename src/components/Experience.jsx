@@ -6,6 +6,8 @@ import { styles } from '../styles';
 import { experiences, experiencesText } from '../constants';
 import { SectionWrapper } from '../hoc';
 import { textVariant } from '../utils/motion';
+import { useSelector } from 'react-redux'
+
 
 const ExperienceCard = ({ experience }) => (
   <VerticalTimelineElement
@@ -43,16 +45,19 @@ const ExperienceCard = ({ experience }) => (
 )
 
 const Experience = () => {
+
+  const language = useSelector(state => state.language)
+
   return (
     <>
       <motion.div variants={textVariant()}>
-        <p className={styles.sectionSubText}>{experiencesText.subtitle}</p>
-        <h2 className={styles.sectionHeadText}>{experiencesText.title}</h2>
+        <p className={styles.sectionSubText}>{experiencesText[language].subtitle}</p>
+        <h2 className={styles.sectionHeadText}>{experiencesText[language].title}</h2>
       </motion.div>
 
       <div className='mt-20 flex flex-col'>
         <VerticalTimeline>
-          {experiences.map((experience, index) => (
+          {experiences[language].map((experience, index) => (
             <ExperienceCard key={index} experience={experience} />
           ))}
         </VerticalTimeline>

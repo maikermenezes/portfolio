@@ -7,6 +7,7 @@ import { github } from "../assets"
 import { SectionWrapper } from "../hoc"
 import { projects, projectsText } from "../constants"
 import { fadeIn, textVariant } from "../utils/motion"
+import { useSelector } from 'react-redux'
 
 
 const ProjectCard = ({ index, name, description, tags, image, source_code_link }) => (
@@ -46,23 +47,26 @@ const ProjectCard = ({ index, name, description, tags, image, source_code_link }
 
 
 const Works = () => {
+
+  const language = useSelector(state => state.language)
+
   return (
     <>
       <motion.div variants={textVariant()}>
-        <p className={styles.sectionSubText}>{projectsText.subtitle}</p>
-        <h2 className={styles.sectionHeadText}>{projectsText.title}</h2>
+        <p className={styles.sectionSubText}>{projectsText[language].subtitle}</p>
+        <h2 className={styles.sectionHeadText}>{projectsText[language].title}</h2>
       </motion.div>
 
       <div className="w-full flex">
         <motion.p 
         variants={fadeIn("", "", 0.1, 1)} 
         className="text-secondary text-[17px] max-w-3xl leading-[30px]">
-          {projectsText.description}
+          {projectsText[language].description}
         </motion.p>
       </div>
 
       <div className="mt-20 flex justify-center flex-wrap gap-7">
-        {projects.map((project, index) => (
+        {projects[language].map((project, index) => (
           <ProjectCard key={`project-${index}`} index={index} {...project} />
         ))}
       </div>
