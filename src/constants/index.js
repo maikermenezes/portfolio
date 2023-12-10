@@ -299,6 +299,11 @@ const experiences = { 'pt': [
     }
 ]};
 
+const resumeLink = {
+  'en': 'https://drive.google.com/uc?export=download&id=11MnSpgCwEfFHQR5mIst2L6-hZW_Cfert',
+  'pt': 'https://drive.google.com/uc?export=download&id=1j8L1T71o7sd3Zigr_oI785scJhLOPtiq'
+}
+
 const testimonials = { 'pt': [
   {
     testimonial:
@@ -580,4 +585,4 @@ const projectsText = { 'pt': {
 }
 
 
-export { projectsText, services, technologies, experiences, testimonials, projects, contactText, profileText, heroText, experiencesText, feedbackText };
+export { resumeLink, projectsText, services, technologies, experiences, testimonials, projects, contactText, profileText, heroText, experiencesText, feedbackText };

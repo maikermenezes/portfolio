@@ -2,11 +2,14 @@ import React,  {useEffect, useState} from 'react'
 import { Link } from 'react-router-dom'
 
 import  { styles } from '../styles'
-import  { navLinks} from '../constants'
+import  { navLinks, resumeLink } from '../constants'
 import { logo, menu, close } from '../assets'
 import Flag from 'react-flagkit';
 
 import { useSelector, useDispatch } from 'react-redux'
+
+import { LuDownload } from "react-icons/lu";
+
 
 const Navbar = () => {
 
@@ -34,11 +37,15 @@ const Navbar = () => {
             <img src={logo} alt="logo" className="w-9 h-9 object-contain" />
             <p className="text-white text-[18px] font-bold cursor-pointer">Maike Menezes</p>
           </Link>
+          <a href={resumeLink[language]}
+            className='flex gap-2 items-center'
+            download={ language === 'pt' ? 'Maike Menezes - curriculo.pdf' : 'Maike Menezes - Resume.pdf'}
+            rel="noreferrer"><LuDownload size={20} color='#00dddd'/> {language === 'pt'? 'Baixar Currículo' : 'Download Resume'}</a>
           <ul className="list-none hidden sm:flex flex-row gap-10">
-          <button className='flex gap-4 items-center' onClick={switchLanguage}>
-            <Flag className="rounded-full" country={language === 'pt' ? 'BR' : 'GB'} size={32} />
-            {language === 'pt' ? 'BR' : 'ENG'}
-          </button>
+            <button className='flex gap-4 items-center' onClick={switchLanguage}>
+              <Flag className="rounded-full" country={language === 'pt' ? 'BR' : 'GB'} size={32} />
+              {language === 'pt' ? 'BR' : 'ENG'}
+            </button>
             {navBarLinks.map((link) => (
               <li key={link.id} className={`${
                 active === link.title? "text-teal-dark" : "text-secondary"} 
