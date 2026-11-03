@@ -1,7 +1,4 @@
 import {
-  mobile,
-  backend,
-  web,
   javascript,
   typescript,
   html,
@@ -14,575 +11,514 @@ import {
   git,
   figma,
   docker,
+  threejs,
   citi,
   seedabit,
   facilit,
   storyVision,
   flashi,
-  threejs,
-  karina, 
+  karina,
   soph,
   jona,
   bea,
 } from "../assets";
 
-export const navLinks = { 'pt': [
-  {
-    id: "about",
-    title: "Sobre mim",
-  },
-  {
-    id: "experience",
-    title: "Experiência",
-  },
-  {
-    id: "work",
-    title: "Trabalho",
-  },
-  {
-    id: "contact",
-    title: "Contatos",
-  },
-],
-'en': [
-  {
-    id: "about",
-    title: "About",
-  },
-  {
-    id: "experience",
-    title: "Experience",
-  },
-  {
-    id: "work",
-    title: "Work",
-  },
-  {
-    id: "contact",
-    title: "Contact",
-  },
-] }
-;
+export const CAREER_START_YEAR = 2020;
 
-const services = {'pt': [
-  {
-    title: "Desenvolvedor Web",
-    icon: web,
-  },
-  {
-    title: "Desenvolvedor React Native",
-    icon: mobile,
-  },
-  {
-    title: "Desenvolvedor Backend",
-    icon: backend,
-  },
- 
-], 
-'en': [
-  {
-    title: "Web Developer",
-    icon: web,
-  },
-  {
-    title: "React Native Developer",
-    icon: mobile,
-  },
-  {
-    title: "Backend Developer",
-    icon: backend,
-  },
-]};
+export const navLinks = {
+  pt: [
+    { id: "about", title: "Sobre" },
+    { id: "experience", title: "Experiência" },
+    { id: "work", title: "Projetos" },
+    { id: "testimonials", title: "Depoimentos" },
+    { id: "contact", title: "Contato" },
+  ],
+  en: [
+    { id: "about", title: "About" },
+    { id: "experience", title: "Experience" },
+    { id: "work", title: "Work" },
+    { id: "testimonials", title: "Testimonials" },
+    { id: "contact", title: "Contact" },
+  ],
+};
 
-const technologies = [
-  {
-    name: "CSS 3",
-    icon: css,
-  },
-  {
-    name: "HTML 5",
-    icon: html,
-  },
-  {
-    name: "JavaScript",
-    icon: javascript,
-  },
-  {
-    name: "TypeScript",
-    icon: typescript,
-  },
-  {
-    name: "React JS",
-    icon: reactjs,
-  },
-  {
-    name: "Redux Toolkit",
-    icon: redux,
-  },
-  {
-    name: "Tailwind CSS",
-    icon: tailwind,
-  },
-  {
-    name: "Node JS",
-    icon: nodejs,
-  },
-  {
-    name: "MongoDB",
-    icon: mongodb,
-  },
-  {
-    name: "Three JS",
-    icon: threejs,
-  },
-  {
-    name: "git",
-    icon: git,
-  },
-  {
-    name: "figma",
-    icon: figma,
-  },
-  {
-    name: "docker",
-    icon: docker,
-  },
-  // {
-  //   name: "styled-components",
-  //   icon: css,
-  // },
-  // {
-  //   name: "material-ui",
-  //   icon: css,
-  // }
+export const socialLinks = [
+  { name: "GitHub", link: "https://github.com/maikermenezes", icon: "github" },
+  { name: "LinkedIn", link: "https://www.linkedin.com/in/maike-menezes-1638ba17a/", icon: "linkedin" },
 ];
 
-const experiences = { 'pt': [
-  {
-    title: "Full stack Developer",
-    company_name: "Facilit Technollgia SA",
-    icon: facilit,
-    iconBg: "#E6DEDD",
-    date: "November 2021 - Atualmente",
-    points: [
-      "Responsável pela implementação de importantes funcionalidades de front-end em uma plataforma SaaS que são usadas por dezenas de milhares de clientes diáriamente.",
-      "Responsável pela análise de viabilidade e implementação de uma migração tecnológica de Angularjs para React.",
-      "À frente da implementação de design systems.",
-      "Participação ativa no planejamento e desenvolvimento de funcionalidades.",
-      "Refatoração de funcionalidades legadas, juntamente com novas interfaces e manutenção.",
-    ],
+export const ui = {
+  pt: {
+    menu: "Menu",
+    close: "Fechar",
+    loading: "Carregando experiência",
+    viewProject: "Ver",
+    backToTop: "Voltar ao topo",
+    builtWith: "Desenhado & desenvolvido por Maike Menezes",
+    localTime: "Horário local",
   },
-  {
-    title: "Líder de Desenvolvimento",
-    company_name: "CITi (empresa júnior)",
-    icon: citi,
-    iconBg: "#E6DEDD",
-    date: "Janeiro 2023 - Junho 2023",
-    points: [
-      "Responsável por providenciar treinamento apropriado para novos membros da equipe.",
-      "Liderança de múltiplos times e projetos dentro da empresa.",
-      "Frequente comunicação com stakeholders para garantir o sucesso de cada projeto.",
-      "Responsável pelo planejamento tático e estratégico (usando OKR) do time de desenvolvimento, asism como a implementação de metodologias e ações para melhorar a performance do time.",
-      "Participação em code review e provimento de feedback para desenvolvedores do time.",
-    ],
+  en: {
+    menu: "Menu",
+    close: "Close",
+    loading: "Loading experience",
+    viewProject: "View",
+    backToTop: "Back to top",
+    builtWith: "Designed & built by Maike Menezes",
+    localTime: "Local time",
   },
-  {
-    title: "Desenvolvedor Full Stack",
-    company_name: "CITi (empresa júnior)",
-    icon: citi,
-    iconBg: "#E6DEDD",
-    date: "Dezembro 2021 - Dezembro 2022",
-    points: [
-      "Desenvolvimento de projetos para diversos clientes seguindo as melhores práticas de desenvolvimento assim como as tecnologias mais modernas do mercado.",
-      "Trabalhando lado a lado com times de outras empresas.",
-      "Participação ativa em análises de viabilidade de projetos e negociação com clientes.",
-      "Participação em code reviews e provendo feedbacks para outros membros da equipe.",
-      "Documentação de processos e fluxos de trabalho.",
-      "Contribuí para o desenolvimento de uma plataforma de capacitação interna, assim como alguns treinamentos."
-    ],
+};
+
+export const heroText = {
+  pt: {
+    available: "Disponível para novos projetos",
+    greeting: "Olá, eu sou o Maike —",
+    line1: "Engenheiro de",
+    line2: "Software",
+    lead: "Eu desenvolvo",
+    roles: ["aplicações web", "aplicativos mobile", "sistemas backend", "design systems"],
+    description:
+      "Transformo ideias em produtos digitais rápidos, bonitos e escaláveis — da interface ao servidor.",
+    ctaPrimary: "Ver projetos",
+    ctaSecondary: "Vamos conversar",
+    scroll: "Role para explorar",
+    location: "Brasil · Trabalho remoto",
   },
-  {
-    title: "Estágio em Desenvolvimento Web",
-    company_name: "Facilit Technollgia SA",
-    icon: facilit,
-    iconBg: "#E6DEDD",
-    date: "Abril 2021 - Outubro 2021",
-    points: [
-      "Desenvolvimento e manuteção de uma plataforma SaaS usando primariamente Angularjs, JQuery, Java, and outras tecnologias relacionadas.",
-      "Responsável por algumas implementações de interfaces e novas funcionalidades.",
-      "Implementação de design responsivo levando em consideração compatibilidade com múltiplas plataformas.",
-      "Prover documentação para fluxos de trabalho e processos."
-    ],
+  en: {
+    available: "Available for new projects",
+    greeting: "Hi, I'm Maike —",
+    line1: "Software",
+    line2: "Engineer",
+    lead: "I build",
+    roles: ["web applications", "mobile apps", "backend systems", "design systems"],
+    description:
+      "I turn ideas into fast, beautiful and scalable digital products — from the interface to the server.",
+    ctaPrimary: "See my work",
+    ctaSecondary: "Let's talk",
+    scroll: "Scroll to explore",
+    location: "Brazil · Working remotely",
   },
-  {
-    title: "Desenvolvedor Front-end",
-    company_name: "Seed a Bit (empresa júnior)",
-    icon: seedabit,
-    iconBg: "#E6DEDD",
-    date: "Novembro 2020 - Setembro 2021",
-    points: [
-      "Desenvolvimento e manutenção de aplicações web com javascript puro e outras tecnologias relacionadas.",
-      "Colaboração com times multi-disciplinares que incluiam designers, gerentes de produto e outros desenvolvedores usando Scrum.",
-      "Implementação de design responsivo.",
-      "Participação em revisão de código e passagem de feedbacks a outros desenvolvedores.",
+};
+
+export const profileText = {
+  pt: {
+    eyebrow: "Sobre mim",
+    title: "Código com propósito, interfaces com alma.",
+    description:
+      "Sou um desenvolvedor de software com experiência em TypeScript e JavaScript. Tenho paixão por criar experiências de usuário bonitas, funcionais e intuitivas. Aprendo rápido e estou sempre buscando expandir minhas habilidades. Colaboro de perto com clientes para criar soluções eficientes, escaláveis e fáceis de usar que resolvem problemas reais. Vamos trabalhar juntos para dar vida às suas ideias.",
+    stats: [
+      { suffix: "+", label: "anos construindo produtos", key: "years" },
+      { value: 10, suffix: "k+", label: "usuários diários impactados" },
+      { value: 5, suffix: "", label: "cargos em 3 empresas" },
     ],
-  }],
-  'en': [
+    currently: "Atualmente",
+    currentRole: "Full Stack Developer",
+    currentCompany: "Facilit Tecnologia",
+    servicesTitle: "O que eu faço",
+    snippetTitle: "maike.config.ts",
+  },
+  en: {
+    eyebrow: "About me",
+    title: "Code with purpose, interfaces with soul.",
+    description:
+      "I'm a software developer experienced in TypeScript and JavaScript. I have a passion for creating beautiful, functional and intuitive user experiences. I'm a quick learner and always looking to expand my skillset. I collaborate closely with clients to build efficient, scalable and user-friendly solutions that solve real-world problems. Let's work together to bring your ideas to life.",
+    stats: [
+      { suffix: "+", label: "years shipping products", key: "years" },
+      { value: 10, suffix: "k+", label: "daily users impacted" },
+      { value: 5, suffix: "", label: "roles across 3 companies" },
+    ],
+    currently: "Currently",
+    currentRole: "Full Stack Developer",
+    currentCompany: "Facilit Tecnologia",
+    servicesTitle: "What I do",
+    snippetTitle: "maike.config.ts",
+  },
+};
+
+export const services = {
+  pt: [
     {
-      title: "Full stack Developer",
-      company_name: "Facilit Technollgia SA",
+      title: "Desenvolvimento Web",
+      icon: "web",
+      description: "SPAs e plataformas SaaS em React com foco em performance, acessibilidade e animações que encantam.",
+    },
+    {
+      title: "Apps Mobile",
+      icon: "mobile",
+      description: "Aplicativos multiplataforma com React Native, experiência nativa e uma única base de código.",
+    },
+    {
+      title: "Backend & APIs",
+      icon: "backend",
+      description: "APIs Node.js robustas, bancos de dados e integrações — incluindo IA — prontas para escalar.",
+    },
+  ],
+  en: [
+    {
+      title: "Web Development",
+      icon: "web",
+      description: "React SPAs and SaaS platforms focused on performance, accessibility and delightful motion.",
+    },
+    {
+      title: "Mobile Apps",
+      icon: "mobile",
+      description: "Cross-platform apps with React Native — native feel, one codebase.",
+    },
+    {
+      title: "Backend & APIs",
+      icon: "backend",
+      description: "Robust Node.js APIs, databases and integrations — AI included — built to scale.",
+    },
+  ],
+};
+
+export const technologies = [
+  { name: "TypeScript", icon: typescript },
+  { name: "JavaScript", icon: javascript },
+  { name: "React", icon: reactjs },
+  { name: "React Native", icon: reactjs },
+  { name: "Redux", icon: redux },
+  { name: "Node.js", icon: nodejs },
+  { name: "Three.js", icon: threejs },
+  { name: "Tailwind", icon: tailwind },
+  { name: "MongoDB", icon: mongodb },
+  { name: "Docker", icon: docker },
+  { name: "HTML5", icon: html },
+  { name: "CSS3", icon: css },
+  { name: "Git", icon: git },
+  { name: "Figma", icon: figma },
+];
+
+export const experiencesText = {
+  pt: { eyebrow: "Trajetória", title: "Experiência", subtitle: "O que eu fiz até agora" },
+  en: { eyebrow: "Journey", title: "Experience", subtitle: "What I've done so far" },
+};
+
+export const experiences = {
+  pt: [
+    {
+      title: "Desenvolvedor Full Stack",
+      company_name: "Facilit Tecnologia",
       icon: facilit,
-      iconBg: "#E6DEDD",
-      date: "November 2021 - Currently",
+      date: "Nov 2021 — Atual",
+      current: true,
       points: [
-        "Responsible for the implementation of crucial front-end features in a SaaS platform that is used by tens of thousands of customers daily.",
-        "Responsible for the feasibility analysis and implementation of a technological migration from Angularjs to React.",
-        "Leading the implementation of design systems.",
-        "Active participation in the planning and development of new features.",
-        "Refactoring of legacy features, along with new interfaces and maintenance.",
+        "Responsável pela implementação de funcionalidades de front-end cruciais em uma plataforma SaaS usada diariamente por dezenas de milhares de clientes.",
+        "Responsável pela análise de viabilidade e implementação da migração tecnológica de AngularJS para React.",
+        "À frente da implementação de design systems.",
+        "Participação ativa no planejamento e desenvolvimento de novas funcionalidades.",
+        "Refatoração de funcionalidades legadas, novas interfaces e manutenção.",
       ],
+      tags: ["React", "TypeScript", "AngularJS", "Design Systems"],
+    },
+    {
+      title: "Líder de Desenvolvimento",
+      company_name: "CITi (empresa júnior)",
+      icon: citi,
+      date: "Jan 2023 — Jun 2023",
+      points: [
+        "Treinamento e onboarding de novos membros da equipe.",
+        "Liderança de múltiplos times e projetos dentro da empresa.",
+        "Comunicação frequente com stakeholders para garantir o sucesso de cada projeto.",
+        "Planejamento tático e estratégico (OKR) do time de desenvolvimento, com metodologias e ações para melhorar a performance do time.",
+        "Code review e feedback para os desenvolvedores do time.",
+      ],
+      tags: ["Liderança", "OKR", "Code Review"],
+    },
+    {
+      title: "Desenvolvedor Full Stack",
+      company_name: "CITi (empresa júnior)",
+      icon: citi,
+      date: "Dez 2021 — Dez 2022",
+      points: [
+        "Desenvolvimento de projetos para diversos clientes seguindo boas práticas e tecnologias modernas.",
+        "Trabalho lado a lado com times de outras empresas.",
+        "Participação em análises de viabilidade de projetos e negociação com clientes.",
+        "Code reviews e feedback para outros membros da equipe.",
+        "Documentação de processos e fluxos de trabalho.",
+        "Contribuí para o desenvolvimento de uma plataforma de capacitação interna, assim como treinamentos.",
+      ],
+      tags: ["React", "Node.js", "Clientes"],
+    },
+    {
+      title: "Estágio em Desenvolvimento Web",
+      company_name: "Facilit Tecnologia",
+      icon: facilit,
+      date: "Abr 2021 — Out 2021",
+      points: [
+        "Desenvolvimento e manutenção de uma plataforma SaaS usando principalmente AngularJS, jQuery e Java.",
+        "Implementação de interfaces e novas funcionalidades.",
+        "Design responsivo com compatibilidade entre múltiplas plataformas.",
+        "Documentação de fluxos de trabalho e processos.",
+      ],
+      tags: ["AngularJS", "jQuery", "Java"],
+    },
+    {
+      title: "Desenvolvedor Front-end",
+      company_name: "Seed a Bit (empresa júnior)",
+      icon: seedabit,
+      date: "Nov 2020 — Set 2021",
+      points: [
+        "Desenvolvimento e manutenção de aplicações web com JavaScript puro e tecnologias relacionadas.",
+        "Colaboração com times multidisciplinares — designers, gerentes de produto e desenvolvedores — usando Scrum.",
+        "Implementação de design responsivo.",
+        "Code review e feedback para outros desenvolvedores.",
+      ],
+      tags: ["JavaScript", "Scrum", "Responsivo"],
+    },
+  ],
+  en: [
+    {
+      title: "Full Stack Developer",
+      company_name: "Facilit Tecnologia",
+      icon: facilit,
+      date: "Nov 2021 — Present",
+      current: true,
+      points: [
+        "Responsible for implementing crucial front-end features in a SaaS platform used daily by tens of thousands of customers.",
+        "Led the feasibility analysis and implementation of the technology migration from AngularJS to React.",
+        "Leading the implementation of design systems.",
+        "Active participation in planning and developing new features.",
+        "Refactoring legacy features, building new interfaces and maintenance.",
+      ],
+      tags: ["React", "TypeScript", "AngularJS", "Design Systems"],
     },
     {
       title: "Tech Lead",
       company_name: "CITi (junior enterprise)",
       icon: citi,
-      iconBg: "#E6DEDD",
-      date: "January 2023 - June 2023",
+      date: "Jan 2023 — Jun 2023",
       points: [
-        "Responsible for providing appropriate training for new team members.",
+        "Training and onboarding of new team members.",
         "Leadership of multiple teams and projects within the company.",
         "Frequent communication with stakeholders to ensure the success of each project.",
-        "Responsible for tactical and strategic planning (using OKR) of the development team, as well as the implementation of methodologies and actions to improve the team's performance.",
-        "Participation in code review and provision of feedback to team developers.",
+        "Tactical and strategic planning (OKR) of the development team, plus methodologies and actions to improve team performance.",
+        "Code review and feedback for team developers.",
       ],
+      tags: ["Leadership", "OKR", "Code Review"],
     },
     {
       title: "Full Stack Developer",
       company_name: "CITi (junior enterprise)",
       icon: citi,
-      iconBg: "#E6DEDD",
-      date: "December 2021 - December 2022",
+      date: "Dec 2021 — Dec 2022",
       points: [
-        "Development of projects for various clients following the best development practices as well as the most modern technologies on the market.",
-        "Working side by side with teams from other companies.",
-        "Active participation in project feasibility analysis and negotiation with clients.",
-        "Participation in code reviews and providing feedback to other team members.",
+        "Built projects for multiple clients following best practices and modern technologies.",
+        "Worked side by side with teams from other companies.",
+        "Took part in project feasibility analysis and client negotiation.",
+        "Code reviews and feedback for other team members.",
         "Documentation of processes and workflows.",
-        "Contributed to the development of an internal training platform, as well as some trainings."
+        "Contributed to an internal training platform, as well as several trainings.",
       ],
+      tags: ["React", "Node.js", "Clients"],
     },
     {
       title: "Web Development Intern",
-      company_name: "Facilit Technollgia SA",
+      company_name: "Facilit Tecnologia",
       icon: facilit,
-      iconBg: "#E6DEDD",
-      date: "April 2021 - October 2021",
+      date: "Apr 2021 — Oct 2021",
       points: [
-        "Development and maintenance of a SaaS platform using primarily Angularjs, JQuery, Java, and other related technologies.",
-        "Responsible for some interface implementations and new features.",
-        "Implementation of responsive design taking into account compatibility with multiple platforms.",
-        "Provide documentation for workflows and processes."
+        "Development and maintenance of a SaaS platform using primarily AngularJS, jQuery and Java.",
+        "Implemented interfaces and new features.",
+        "Responsive design with cross-platform compatibility.",
+        "Documentation of workflows and processes.",
       ],
+      tags: ["AngularJS", "jQuery", "Java"],
     },
     {
       title: "Front-end Developer",
       company_name: "Seed a Bit (junior enterprise)",
       icon: seedabit,
-      iconBg: "#E6DEDD",
-      date: "November 2020 - September 2021",
+      date: "Nov 2020 — Sep 2021",
       points: [
-        "Development and maintenance of web applications with pure javascript and other related technologies.",
-        "Collaboration with multi-disciplinary teams that included designers, product managers and other developers using Scrum.",
+        "Development and maintenance of web applications with vanilla JavaScript and related technologies.",
+        "Collaborated with multidisciplinary teams — designers, product managers and developers — using Scrum.",
         "Implementation of responsive design.",
-        "Participation in code review and passing of feedback to other developers.",
+        "Code review and feedback for other developers.",
       ],
-    }
-]};
+      tags: ["JavaScript", "Scrum", "Responsive"],
+    },
+  ],
+};
 
-const resumeLink = {
-  'en': 'https://drive.google.com/uc?export=download&id=11MnSpgCwEfFHQR5mIst2L6-hZW_Cfert',
-  'pt': 'https://drive.google.com/uc?export=download&id=1j8L1T71o7sd3Zigr_oI785scJhLOPtiq'
-}
-
-const testimonials = { 'pt': [
-  {
-    testimonial:
-    "Maike foi uma das lideranças mais servidoras, presentes e dedicadas com quem já tive o privilégio de trabalhar. Com muita dedicação, disciplina, postura e empatia, era visível a sua vontade de fazer mais e melhor sempre, recebendo feedbacks e buscando o desenvolvimento da empresa e das pessoas colaboradoras.",
-    name: "Sophia Latache",
-    designation: "CEO",
-    company: "CITi",
-    image: soph,
-    preposition: "no"
-  },
-  {
-    testimonial:
-      "Maike é uma pessoa extremamente dedicada em tudo que se propõe a fazer. Suas hard skills sempre foram fundamentais para impactar nos projetos que atuou no CITi. Destaco também suas soft skills, pois é uma pessoa muito empática e que tem sempre uma escuta ativa forte, buscando não apenas entender as dores das pessoas ao redor, mas também propondo ações que as ajudem a se desenvolver. Além disso, é uma grande inspiração minha no que diz respeito a gestão do tempo e organização, habilidades essas que o fazem se destacar como pessoa e profissional",
-    name: "Jonailton Pereira",
-    designation: "Gerente Financeiro",
-    company: "CITi",
-    image: jona,
-    preposition: "no"
-  },
-  {
-    testimonial:
-      "Maike é uma pessoa dinamica, que tem otimo capacidade de resolução de problemas, além de simplificar processos de uma maneira muito inteligente e agil. É alguém que integra e dinamiza toda a equipe de uma maneira fantastica.",
-    name: "Beatriz Cordeiro",
-    designation: "Colega de trabalho",
-    company: "CITi (trainee)",
-    image: bea,
-    preposition: "no"
-  },
-  {
-    testimonial:
-      "Maike foi capaz de melhorar grandemente a performance do nosso site e entregar o projeto no prazo e com grande qualidade.",
-    name: "Karina Amaral",
-    designation: "Doutora em Biologia Animal (Cliente)",
-    company: "SBEQ",
-    image: karina, 
-    preposition: "na"
-  },
-],
- 'en': [
-  {
-    testimonial:
-    "Maike was one of the most serving, present and dedicated leaders I've ever had the privilege of working with. With a lot of dedication, discipline, posture and empathy, his desire to do more and better was visible, receiving feedback and seeking the development of the company and the employees.",
-    name: "Sophia Latache",
-    designation: "CEO",
-    company: "CITi",
-    image: soph,
-    preposition: "at"
-  },
-  {
-    testimonial:
-      "Maike is an extremely dedicated person in everything he proposes to do. His hard skills have always been fundamental to impact the projects he worked on at CITi. I also highlight his soft skills, as he is a very empathetic person and has a strong active listening, seeking not only to understand the pains of the people around him, but also proposing actions that help them to develop. In addition, he is a great inspiration of mine when it comes to time management and organization, skills that make him stand out as a person and professional",
-    name: "Jonailton Pereira",
-    designation: "Financial Manager",
-    company: "CITi",
-    image: jona,
-    preposition: "at"
-  },
-  {
-    testimonial:
-      "Maike is a dynamic person, who has great problem solving skills, as well as simplifying processes in a very intelligent and agile way. He is someone who integrates and streamlines the entire team in a fantastic way.",
-    name: "Beatriz Cordeiro",
-    designation: "Colleague",
-    company: "CITi (trainee)",
-    image: bea,
-    preposition: "at"
-  },
-  {
-    testimonial:
-      "Maike was able to greatly improve the performance of our website and deliver the project on time and with great quality.",
-    name: "Karina Amaral",
-    designation: "PhD in Animal Biology (Client)",
-    company: "SBEQ",
-    image: karina, 
-    preposition: "at",
-  },
-]}
-
-;
-
-const socialLinks = {
-  github: {
-      name: "github",
-      link: "https://github.com/maikermenezes",
-      icon: "github",
-  },
-  linkedin:
-  {
-      name: "linkedin",
-      link: "https://www.linkedin.com/in/maike-menezes-1638ba17a/",
-      icon: "linkedin",
-  }
-}
-
-const projects = {'pt': [
-  {
-    name: "Story Vision",
+export const projectsText = {
+  pt: {
+    eyebrow: "Trabalhos selecionados",
+    title: "Projetos",
     description:
-      "Uma aplicação web que cria uma história baseada em uma descrição fornecida pelo usuário, retornando um conjunto de trechos da história com imagens associadas com cada trecho. ",
-    tags: [
-      {
-        name: "react",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "OpenAI API",
-        color: "green-text-gradient",
-      },
-      {
-        name: "scss",
-        color: "pink-text-gradient",
-      },
-    ],
-    image: storyVision,
-    source_code_link: "https://github.com/maikermenezes/story-vision",
+      "Projetos pessoais que mostram minhas habilidades resolvendo problemas reais — da integração com IA à experiência do usuário. Cada um reflete minha paixão pelo aprendizado constante.",
+    code: "Código",
   },
-  {
-    name: "flAshI",
-    description:
-      "Uma aplicação focada no aprendizado de idiomas que cria automaticamente flashcards baseados em uma palavra fornecida e retorna cartões para cada significado da palavra e imagens para ilustrá-los.",
-    tags: [
-      {
-        name: "react_native",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "node",
-        color: "green-text-gradient",
-      },
-      {
-        name: "OpenAI_API",
-        color: "pink-text-gradient",
-      },
-    ],
-    image: flashi,
-    source_code_link: "https://github.com/maikermenezes/cria-comp-autoral",
-  },
-  
-],
-'en': [
-  {
-    name: "Story Vision",
-    description:
-      "A web application that creates a story based on a description provided by the user, returning a set of story snippets with images associated with each snippet.",
-    tags: [
-      {
-        name: "react",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "OpenAI API",
-        color: "green-text-gradient",
-      },
-      {
-        name: "scss",
-        color: "pink-text-gradient",
-      },
-    ],
-    image: storyVision,
-    source_code_link: "https://github.com/maikermenezes/story-vision",
-  },
-  {
-    name: "flAshI",
-    description:
-      "A language learning focused application that automatically creates flashcards based on a provided word and returns cards for each meaning of the word and images to illustrate them.",
-    tags: [
-      {
-        name: "react_native",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "node",
-        color: "green-text-gradient",
-      },
-      {
-        name: "OpenAI_API",
-        color: "pink-text-gradient",
-      },
-    ],
-    image: flashi,
-    source_code_link: "https://github.com/maikermenezes/cria-comp-autoral",
-  },
-]
-}
-
-const contactText = { 'pt': {
-  title: "Contato",
-  description: "Envie-me um email",
-  name: "Seu nome",
-  namePlaceholder: "Qual seu nome?",
-  email: "Seu email",
-  emailPlaceholder: "Qual seu email?",
-  message: "Sua mensagem",
-  messagePlaceholder: "O que gostaria de dizer?",
-  send: "Enviar",
-  sending: "Enviando...",
-  sent: "Enviado!",
-  error: "Erro ao enviar mensagem. Por favor, tente novamente",
-  success: "Obrigado pelo seu contato. Responderei assim que possível!",
-},
-  'en': {
-    title: "Contact",
-    description: "Send me an email",
-    name: "Your name",
-    namePlaceholder: "What's your name?",
-    email: "Your email",
-    emailPlaceholder: "What's your email?",
-    message: "Your message",
-    messagePlaceholder: "What would you like to say?",
-    send: "Send",
-    sending: "Sending...",
-    sent: "Sent!",
-    error: "Error sending message. Please try again",
-    success: "Thank you for your message. I'll reply as soon as possible!",
-  }
-}
-
-const profileText = { 'pt': {
-  title: "Minha descrição",
-  subtitle: "Perfil",
-  description: "Eu sou um desenvolvedor habilidoso com experiência em Typescript e Javascript. Tenho paixão por criar experiências de usuário bonitas, funcionais e intuitivas. Tenho grande facilidade em aprender e estou sempre procurando expandir meu minhas habilidades. Colaboro de perto com os clientes para criar soluções eficientes, escaláveis e fáceis de usar que resolvem problemas reais. Vamos trabalhar juntos para dar vida às suas ideias",
-},
-  'en': {
-    title: "My description",
-    subtitle: "Profile",
-    description: "I'm a skilled software developer with experience in Typescript and Javascript. I have a passion for creating beautiful, functional and intuitive user experiences. I'm a quick learner and I'm always looking to expand my skillset. I collaborate closely with clients to create effiecient, scalable, and user friendly solutions that solve real-world problems. Let's work together to bring your ideas to life",
-  }
-}
-
-const heroText = { 'pt':{
-  title: "Oi, eu sou ",
-  name: "Maike",
-  text1: "Eu desenvolvo ",
-  text21: "aplicações web", 
-  text22: " aplicativos mobile", 
-  text23: " aplicações backend", 
-  text3: "Clique para próxima seção",
-},
-  'en': {
-   title: "Hi, I'm ",
-   name: "Maike",
-   text1: "I develop ",
-   text21: "web applications", 
-   text22: " mobile applications", 
-   text23: " backend applications", 
-   text3: "Click to next section",
-  }
-}
-
-const experiencesText = { 'pt': {
-  title: "Experiência",
-  subtitle: "O que eu fiz até agora",
-},
-  'en': {
-    title: "Experience",
-    subtitle: "What I've done so far",
-  }
-}
-
-const feedbackText = { 'pt': {
-  title: "Depoimentos",
-  subtitle: "O que as pessoas dizem sobre mim",
-},
-  'en': {
-    title: "Testimonials",
-    subtitle: "What people say about me",
-  }
-}
-
-const projectsText = { 'pt': {
-  title: "Projetos",
-  subtitle: "Um pouco do meu trabalho",
-  description: "Aqui estão alguns projetos pessoais que mostram minhas habilidades e experiências por meio da solução de problemas reais. Cada projeto tem o link para o repositório no GitHub e um link para a aplicação em produção, quando aplicável. Todos eles refletem minha habilidade de resolver problemas, experiências com diferentes tecnologias e minha paixão pelo constante aprendizado.",
-},
-  'en': {
+  en: {
+    eyebrow: "Selected work",
     title: "Projects",
-    subtitle: "Some of my work",
-    description: "Here are some personal projects that showcase my skills and experiences through solving real-world problems. Each project has a link to the repository on GitHub and a link to the production application, when applicable. They all reflect my ability to solve problems, experiences with different technologies and my passion for constant learning.",
-  }
-}
+    description:
+      "Personal projects that showcase my skills solving real-world problems — from AI integrations to user experience. Each one reflects my passion for constant learning.",
+    code: "Source",
+  },
+};
 
+export const projects = {
+  pt: [
+    {
+      name: "Story Vision",
+      year: "2023",
+      category: "Web · IA generativa",
+      description:
+        "Uma aplicação web que cria uma história a partir de uma descrição do usuário, retornando trechos da história com imagens geradas para cada trecho.",
+      tags: ["React", "OpenAI API", "SCSS"],
+      image: storyVision,
+      source_code_link: "https://github.com/maikermenezes/story-vision",
+    },
+    {
+      name: "flAshI",
+      year: "2023",
+      category: "Mobile · Educação",
+      description:
+        "Aplicativo de aprendizado de idiomas que cria flashcards automaticamente a partir de uma palavra, com cartões para cada significado e imagens para ilustrá-los.",
+      tags: ["React Native", "Node.js", "OpenAI API"],
+      image: flashi,
+      source_code_link: "https://github.com/maikermenezes/cria-comp-autoral",
+    },
+  ],
+  en: [
+    {
+      name: "Story Vision",
+      year: "2023",
+      category: "Web · Generative AI",
+      description:
+        "A web app that writes a story from a user's prompt, returning story snippets with a generated image for each one.",
+      tags: ["React", "OpenAI API", "SCSS"],
+      image: storyVision,
+      source_code_link: "https://github.com/maikermenezes/story-vision",
+    },
+    {
+      name: "flAshI",
+      year: "2023",
+      category: "Mobile · Education",
+      description:
+        "A language-learning app that automatically builds flashcards from a word, with a card for each meaning and images to illustrate them.",
+      tags: ["React Native", "Node.js", "OpenAI API"],
+      image: flashi,
+      source_code_link: "https://github.com/maikermenezes/cria-comp-autoral",
+    },
+  ],
+};
 
-export { resumeLink, projectsText, services, technologies, experiences, testimonials, projects, contactText, profileText, heroText, experiencesText, feedbackText };
+export const feedbackText = {
+  pt: { eyebrow: "Depoimentos", title: "O que dizem sobre mim" },
+  en: { eyebrow: "Testimonials", title: "What people say" },
+};
+
+export const testimonials = {
+  pt: [
+    {
+      testimonial:
+        "Maike foi uma das lideranças mais servidoras, presentes e dedicadas com quem já tive o privilégio de trabalhar. Com muita dedicação, disciplina, postura e empatia, era visível a sua vontade de fazer mais e melhor sempre, recebendo feedbacks e buscando o desenvolvimento da empresa e das pessoas colaboradoras.",
+      name: "Sophia Latache",
+      designation: "CEO",
+      company: "CITi",
+      image: soph,
+      preposition: "no",
+    },
+    {
+      testimonial:
+        "Maike é uma pessoa extremamente dedicada em tudo que se propõe a fazer. Suas hard skills sempre foram fundamentais para impactar nos projetos que atuou no CITi. Destaco também suas soft skills, pois é uma pessoa muito empática e que tem sempre uma escuta ativa forte, buscando não apenas entender as dores das pessoas ao redor, mas também propondo ações que as ajudem a se desenvolver. Além disso, é uma grande inspiração minha no que diz respeito a gestão do tempo e organização, habilidades essas que o fazem se destacar como pessoa e profissional.",
+      name: "Jonailton Pereira",
+      designation: "Gerente Financeiro",
+      company: "CITi",
+      image: jona,
+      preposition: "no",
+    },
+    {
+      testimonial:
+        "Maike é uma pessoa dinâmica, que tem ótima capacidade de resolução de problemas, além de simplificar processos de uma maneira muito inteligente e ágil. É alguém que integra e dinamiza toda a equipe de uma maneira fantástica.",
+      name: "Beatriz Cordeiro",
+      designation: "Colega de trabalho",
+      company: "CITi (trainee)",
+      image: bea,
+      preposition: "no",
+    },
+    {
+      testimonial:
+        "Maike foi capaz de melhorar grandemente a performance do nosso site e entregar o projeto no prazo e com grande qualidade.",
+      name: "Karina Amaral",
+      designation: "Doutora em Biologia Animal (Cliente)",
+      company: "SBEQ",
+      image: karina,
+      preposition: "na",
+    },
+  ],
+  en: [
+    {
+      testimonial:
+        "Maike was one of the most serving, present and dedicated leaders I've ever had the privilege of working with. With a lot of dedication, discipline, posture and empathy, his desire to do more and better was visible, receiving feedback and seeking the development of the company and the employees.",
+      name: "Sophia Latache",
+      designation: "CEO",
+      company: "CITi",
+      image: soph,
+      preposition: "at",
+    },
+    {
+      testimonial:
+        "Maike is an extremely dedicated person in everything he proposes to do. His hard skills have always been fundamental to impact the projects he worked on at CITi. I also highlight his soft skills, as he is a very empathetic person and has a strong active listening, seeking not only to understand the pains of the people around him, but also proposing actions that help them to develop. In addition, he is a great inspiration of mine when it comes to time management and organization, skills that make him stand out as a person and professional.",
+      name: "Jonailton Pereira",
+      designation: "Financial Manager",
+      company: "CITi",
+      image: jona,
+      preposition: "at",
+    },
+    {
+      testimonial:
+        "Maike is a dynamic person, who has great problem solving skills, as well as simplifying processes in a very intelligent and agile way. He is someone who integrates and streamlines the entire team in a fantastic way.",
+      name: "Beatriz Cordeiro",
+      designation: "Colleague",
+      company: "CITi (trainee)",
+      image: bea,
+      preposition: "at",
+    },
+    {
+      testimonial:
+        "Maike was able to greatly improve the performance of our website and deliver the project on time and with great quality.",
+      name: "Karina Amaral",
+      designation: "PhD in Animal Biology (Client)",
+      company: "SBEQ",
+      image: karina,
+      preposition: "at",
+    },
+  ],
+};
+
+export const contactText = {
+  pt: {
+    eyebrow: "Contato",
+    title1: "Vamos construir",
+    title2: "algo incrível",
+    description:
+      "Tem um projeto em mente, uma vaga ou só quer trocar uma ideia? Mande uma mensagem — respondo rapidinho.",
+    name: "Seu nome",
+    email: "Seu email",
+    message: "Conte sobre seu projeto",
+    send: "Enviar mensagem",
+    sending: "Enviando...",
+    sent: "Mensagem enviada!",
+    error: "Erro ao enviar. Tente novamente.",
+    success: "Obrigado pelo contato. Responderei assim que possível!",
+    socials: "Redes",
+  },
+  en: {
+    eyebrow: "Contact",
+    title1: "Let's build",
+    title2: "something great",
+    description:
+      "Got a project in mind, a role to fill or just want to chat? Drop me a message — I reply fast.",
+    name: "Your name",
+    email: "Your email",
+    message: "Tell me about your project",
+    send: "Send message",
+    sending: "Sending...",
+    sent: "Message sent!",
+    error: "Something went wrong. Please try again.",
+    success: "Thanks for reaching out. I'll reply as soon as possible!",
+    socials: "Socials",
+  },
+};
