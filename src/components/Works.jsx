@@ -1,77 +1,192 @@
-import React from "react"
-import { Tilt } from "react-tilt"
-import { motion } from "framer-motion"
+import { useRef } from "react";
+import { motion, useMotionValue, useScroll, useSpring, useTransform } from "framer-motion";
+import { FaGithub } from "react-icons/fa";
+import { HiArrowUpRight } from "react-icons/hi2";
 
-import { styles } from "../styles"
-import { github } from "../assets"
-import { SectionWrapper } from "../hoc"
-import { projects, projectsText } from "../constants"
-import { fadeIn, textVariant } from "../utils/motion"
-import { useSelector } from 'react-redux'
+import { projects, projectsText, socialLinks, ui } from "../constants";
+import { useLanguage } from "../hooks/useLanguage";
+import { EASE_IN_OUT, EASE_OUT_EXPO } from "../utils/motion";
+import SectionHeading from "./ui/SectionHeading";
 
+const ProjectVisual = ({ image, name, link, viewLabel }) => {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
+  const imgY = useTransform(scrollYProgress, [0, 1], ["-8%", "8%"]);
 
-const ProjectCard = ({ index, name, description, tags, image, source_code_link }) => (
-  <motion.div
-    variants={fadeIn("up", "spring", index * 0.5, 0.75)}>
-      <Tilt
-        options={{ max: 45, scale: 1, speed: 450 }}
-        className="bg-tertiary p-5 rounded-2xl sm:w-[360px] w-full">
-          <div className="relative w-full h-[230px]">
-            <img
-              src={image}
-              alt={name}
-              className="w-full h-full object-cover rounded-2xl" 
-              />
-            <div className="absolute inset-0 flex justify-end m-3 card-img_hover">
-              <div onClick={() => window.open(source_code_link, "_blank")} className="black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer">
-                <img src={github} alt={github} className="w-3/4 h-3/4"/>
-              </div>
-            </div>
-          </div>
-          <div className="mt-5">
-            <h3 className="text-white font-bold text-[24px]">{name}</h3>
-            <p className="mt-2 text-secondary text-[14px]">{description}</p>
-          </div>
+  const rx = useMotionValue(0);
+  const ry = useMotionValue(0);
+  const rotateX = useSpring(rx, { stiffness: 150, damping: 18 });
+  const rotateY = useSpring(ry, { stiffness: 150, damping: 18 });
 
-          <div className="mt-4 flex flex-wrap gap-2">
-            {tags.map((tag) => (
-              <p key={tag.name} className={`text-[14px] ${tag.color}`}>
-                #{tag.name}
-              </p>
-            ))}
-          </div>
-
-        </Tilt>
-  </motion.div>
-  )
-
-
-const Works = () => {
-
-  const language = useSelector(state => state.language)
+  const onMove = (e) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const px = (e.clientX - rect.left) / rect.width - 0.5;
+    const py = (e.clientY - rect.top) / rect.height - 0.5;
+    ry.set(px * 10);
+    rx.set(-py * 10);
+  };
+  const reset = () => {
+    rx.set(0);
+    ry.set(0);
+  };
 
   return (
-    <>
-      <motion.div variants={textVariant()}>
-        <p className={styles.sectionSubText}>{projectsText[language].subtitle}</p>
-        <h2 className={styles.sectionHeadText}>{projectsText[language].title}</h2>
-      </motion.div>
+    <div ref={ref} style={{ perspective: 1200 }}>
+      <motion.a
+        href={link}
+        target="_blank"
+        rel="noreferrer"
+        data-cursor={viewLabel}
+        aria-label={`${name} — GitHub`}
+        onMouseMove={onMove}
+        onMouseLeave={reset}
+        style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
+        initial={{ clipPath: "inset(18% 18% 18% 18% round 28px)", opacity: 0 }}
+        whileInView={{ clipPath: "inset(0% 0% 0% 0% round 28px)", opacity: 1 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 1.3, ease: EASE_IN_OUT }}
+        className="group relative block overflow-hidden rounded-[28px] border border-line bg-ink-800 p-2 shadow-[0_40px_120px_-40px_rgba(0,221,221,0.25)]"
+      >
+        {/* Browser chrome */}
+        <div className="flex items-center gap-2 px-3 pb-2.5 pt-1.5">
+          <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
+          <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
+          <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
+          <span className="mx-auto max-w-[60%] truncate rounded-full bg-white/[0.05] px-4 py-1 font-mono text-[10px] text-muted">
+            github.com/maikermenezes
+          </span>
+        </div>
+        <div className="relative aspect-[16/10] overflow-hidden rounded-[20px]">
+          <motion.img
+            src={image}
+            alt={name}
+            loading="lazy"
+            style={{ y: imgY, scale: 1.18 }}
+            className="absolute inset-0 h-full w-full object-cover object-top transition-[filter] duration-700 group-hover:brightness-110"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-ink-950/50 via-transparent to-transparent opacity-80 transition-opacity duration-500 group-hover:opacity-30" />
+          <div className="absolute inset-0 bg-teal/0 mix-blend-color transition-colors duration-700 group-hover:bg-teal/10" />
+        </div>
+      </motion.a>
+    </div>
+  );
+};
 
-      <div className="w-full flex">
-        <motion.p 
-        variants={fadeIn("", "", 0.1, 1)} 
-        className="text-secondary text-[17px] max-w-3xl leading-[30px]">
-          {projectsText[language].description}
-        </motion.p>
+const ProjectRow = ({ project, index, reverse, labels }) => (
+  <article className="grid items-center gap-10 lg:grid-cols-12 lg:gap-16">
+    <div className={`lg:col-span-7 ${reverse ? "lg:order-2" : ""}`}>
+      <ProjectVisual
+        image={project.image}
+        name={project.name}
+        link={project.source_code_link}
+        viewLabel={labels.view}
+      />
+    </div>
+
+    <motion.div
+      className={`lg:col-span-5 ${reverse ? "lg:order-1" : ""}`}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, amount: 0.4 }}
+      variants={{ hidden: {}, show: { transition: { staggerChildren: 0.08 } } }}
+    >
+      {[
+        <div key="meta" className="flex items-center gap-4 font-mono text-xs uppercase tracking-[0.2em] text-muted">
+          <span className="text-teal">{String(index + 1).padStart(2, "0")}</span>
+          <span className="h-px w-10 bg-line" />
+          <span>{project.category}</span>
+          <span className="ml-auto">{project.year}</span>
+        </div>,
+        <h3 key="name" className="mt-6 font-display text-5xl font-semibold tracking-tight text-fg sm:text-6xl">
+          {project.name}
+        </h3>,
+        <p key="desc" className="mt-5 text-lg leading-relaxed text-muted">
+          {project.description}
+        </p>,
+        <div key="tags" className="mt-6 flex flex-wrap gap-2">
+          {project.tags.map((tag) => (
+            <span key={tag} className="rounded-full border border-teal/20 bg-teal/[0.05] px-3 py-1.5 font-mono text-xs text-teal-300">
+              {tag}
+            </span>
+          ))}
+        </div>,
+        <a
+          key="link"
+          href={project.source_code_link}
+          target="_blank"
+          rel="noreferrer"
+          className="group mt-8 inline-flex items-center gap-3 border-b border-white/20 pb-1 font-medium text-fg transition-colors hover:border-teal hover:text-teal"
+        >
+          <FaGithub /> {labels.code}
+          <HiArrowUpRight className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+        </a>,
+      ].map((child) => (
+        <motion.div
+          key={child.key}
+          variants={{
+            hidden: { opacity: 0, y: 30 },
+            show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: EASE_OUT_EXPO } },
+          }}
+        >
+          {child}
+        </motion.div>
+      ))}
+    </motion.div>
+  </article>
+);
+
+const Works = () => {
+  const { language } = useLanguage();
+  const t = projectsText[language];
+  const github = socialLinks.find((s) => s.icon === "github");
+
+  return (
+    <section id="work" className="relative py-28 sm:py-36">
+      <div className="container-x">
+        <div className="flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
+          <SectionHeading index="03" eyebrow={t.eyebrow} title={t.title} />
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: EASE_OUT_EXPO, delay: 0.2 }}
+            className="max-w-md text-lg leading-relaxed text-muted"
+          >
+            {t.description}
+          </motion.p>
+        </div>
+
+        <div className="mt-20 flex flex-col gap-28 sm:gap-36">
+          {projects[language].map((project, i) => (
+            <ProjectRow
+              key={project.name}
+              project={project}
+              index={i}
+              reverse={i % 2 === 1}
+              labels={{ view: ui[language].viewProject, code: t.code }}
+            />
+          ))}
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          className="mt-24 flex justify-center"
+        >
+          <a
+            href={github.link}
+            target="_blank"
+            rel="noreferrer"
+            className="group inline-flex items-center gap-3 rounded-full border border-line px-6 py-3 font-mono text-xs uppercase tracking-[0.2em] text-muted transition-colors hover:border-teal hover:text-teal"
+          >
+            <FaGithub size={16} /> github.com/maikermenezes
+            <HiArrowUpRight className="transition-transform duration-300 group-hover:rotate-45" />
+          </a>
+        </motion.div>
       </div>
+    </section>
+  );
+};
 
-      <div className="mt-20 flex justify-center flex-wrap gap-7">
-        {projects[language].map((project, index) => (
-          <ProjectCard key={`project-${index}`} index={index} {...project} />
-        ))}
-      </div>
-    </>
-  )
-}
-
-export default SectionWrapper(Works, "work")
+export default Works;

@@ -1,24 +1,27 @@
-import { EarthCanvas, BallCanvas, ComputersCanvas, StarsCanvas } from './canvas';
-import Hero from './Hero';
-import Navbar from './Navbar';
-import About from './About';
-import Tech from './Tech';
-import Experience from './Experience';
-import Works from './Works';
-import Feedbacks from './Feedbacks';
-import Contact from './Contact';
+import About from "./About";
+import Contact from "./Contact";
+import Cursor from "./Cursor";
+import Experience from "./Experience";
+import Feedbacks from "./Feedbacks";
+import Footer from "./Footer";
+import Hero from "./Hero";
+import Navbar from "./Navbar";
+import Preloader from "./Preloader";
+import ScrollProgress from "./ScrollProgress";
+import TechMarquee from "./TechMarquee";
+import Works from "./Works";
 
 export {
+  About,
+  Contact,
+  Cursor,
+  Experience,
+  Feedbacks,
+  Footer,
   Hero,
   Navbar,
-  About,
-  Tech,
-  Experience,
+  Preloader,
+  ScrollProgress,
+  TechMarquee,
   Works,
-  Feedbacks,
-  Contact,
-  EarthCanvas, 
-  BallCanvas, 
-  ComputersCanvas, 
-  StarsCanvas
-}
+};

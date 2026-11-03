@@ -1,34 +1,46 @@
-import { BrowserRouter } from "react-router-dom"
-import { About, Contact, Experience, Feedbacks, 
-  Hero, Navbar, Tech, Works, StarsCanvas} from "./components" 
-  import { useSelector } from 'react-redux'
-  import { heroText } from './constants'
+import { useState } from "react";
+import { MotionConfig } from "framer-motion";
 
-
+import {
+  About,
+  Contact,
+  Cursor,
+  Experience,
+  Feedbacks,
+  Footer,
+  Hero,
+  Navbar,
+  Preloader,
+  ScrollProgress,
+  TechMarquee,
+  Works,
+} from "./components";
+import { useLenis } from "./hooks/useLenis";
 
 const App = () => {
-
-  const language = useSelector(state => state.language)
+  const [loaded, setLoaded] = useState(false);
+  useLenis(loaded);
 
   return (
-    <BrowserRouter>
-      <div className="relative z-0 bg-primary">
-        <div className="bg-hero-pattern bg-cover bg-no-repeat bg-center">
-          <Navbar />
-          <Hero heroText={heroText[language]}/>
-        </div>
-        <About language={language}/>
-        <Experience language={language}/>
-        <Tech language={language}/>
-        <Works language={language}/>
-        <Feedbacks language={language}/>
-        <div className="relative z-o">
-          <Contact language={language}/>
-          <StarsCanvas />
-        </div>
-      </div>
-    </BrowserRouter>
-  )
-}
+    <MotionConfig reducedMotion="user">
+      <Preloader onComplete={() => setLoaded(true)} />
+      <Cursor />
+      <ScrollProgress />
+      <div className="grain" aria-hidden />
 
-export default App
+      <Navbar />
+      <main className="relative">
+        <Hero ready={loaded} />
+        <TechMarquee />
+        <About />
+        <Experience />
+        <Works />
+        <Feedbacks />
+        <Contact />
+      </main>
+      <Footer />
+    </MotionConfig>
+  );
+};
+
+export default App;
