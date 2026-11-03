@@ -15,8 +15,10 @@ import {
   citi,
   seedabit,
   facilit,
-  storyVision,
-  flashi,
+  germinar,
+  conectaOng,
+  soundrangers,
+  moves,
   karina,
   soph,
   jona,
@@ -345,61 +347,104 @@ export const projectsText = {
     eyebrow: "Trabalhos selecionados",
     title: "Projetos",
     description:
-      "Projetos pessoais que mostram minhas habilidades resolvendo problemas reais — da integração com IA à experiência do usuário. Cada um reflete minha paixão pelo aprendizado constante.",
-    code: "Código",
+      "Produtos reais em produção — de plataformas de dados e educação a apps mobile e projetos com impacto social.",
+    links: { live: "Visitar site", store: "Google Play", code: "Código", internal: "Acesso interno · link privado" },
   },
   en: {
     eyebrow: "Selected work",
     title: "Projects",
     description:
-      "Personal projects that showcase my skills solving real-world problems — from AI integrations to user experience. Each one reflects my passion for constant learning.",
-    code: "Source",
+      "Real products in production — from data and education platforms to mobile apps and social-impact projects.",
+    links: { live: "Visit site", store: "Google Play", code: "Source", internal: "Internal access · private link" },
   },
+};
+
+// linkType: "live" | "store" | "code" | "internal" — controls the CTA label and icon.
+// "internal" projects have no public link: the card isn't clickable and shows a private-access badge.
+const projectLinks = {
+  soundrangers: { link: "https://report-soundrangers.vercel.app/login?next=%2F", linkType: "live", host: "report-soundrangers.vercel.app" },
+  moves: { link: "https://play.google.com/store/apps/details?id=com.movesbrasil&hl=pt_BR", linkType: "store", host: "play.google.com" },
+  germinar: { link: null, linkType: "internal", host: "germinar · intranet" },
+  conectaOng: { link: "https://conecta-ong-cad.vercel.app/", linkType: "live", host: "conecta-ong-cad.vercel.app" },
 };
 
 export const projects = {
   pt: [
     {
-      name: "Story Vision",
-      year: "2023",
-      category: "Web · IA generativa",
+      name: "SoundRangers",
+      year: "2026",
+      category: "Web · Plataforma de dados",
       description:
-        "Uma aplicação web que cria uma história a partir de uma descrição do usuário, retornando trechos da história com imagens geradas para cada trecho.",
-      tags: ["React", "OpenAI API", "SCSS"],
-      image: storyVision,
-      source_code_link: "https://github.com/maikermenezes/story-vision",
+        "Ferramenta interna de relatórios de royalties musicais: importa CSVs de plataformas e concilia cada reprodução, reivindicação e pagamento, mostrando os ganhos de cada criador em todo o catálogo.",
+      tags: ["Dashboard", "Importação de CSV", "Conciliação", "Autenticação"],
+      image: soundrangers,
+      ...projectLinks.soundrangers,
     },
     {
-      name: "flAshI",
-      year: "2023",
-      category: "Mobile · Educação",
+      name: "Move's",
+      category: "Mobile · Turismo acessível",
       description:
-        "Aplicativo de aprendizado de idiomas que cria flashcards automaticamente a partir de uma palavra, com cartões para cada significado e imagens para ilustrá-los.",
-      tags: ["React Native", "Node.js", "OpenAI API"],
-      image: flashi,
-      source_code_link: "https://github.com/maikermenezes/cria-comp-autoral",
+        "App de turismo inclusivo para pessoas com mobilidade reduzida: informações detalhadas de acessibilidade em atrações, restaurantes, hotéis e transportes, além de locais pet-friendly e suas regras.",
+      tags: ["Android", "Acessibilidade", "Busca & filtros"],
+      image: moves,
+      ...projectLinks.moves,
+    },
+    {
+      name: "Germinar · Jogos Digitais",
+      category: "Web · Educação · Projeto social",
+      description:
+        "Plataforma de jogos educativos do Programa Germinar, projeto social da Gerdau. Os jogos são organizados em três níveis de aprendizado para ensinar de forma divertida.",
+      tags: ["Jogos educativos", "Níveis de aprendizado", "Impacto social"],
+      image: germinar,
+      ...projectLinks.germinar,
+    },
+    {
+      name: "Conecta ONG",
+      category: "Web · Projeto universitário · CIn-UFPE",
+      description:
+        "Conecta pessoas a ONGs verificadas perto delas: filtro por causa, localização aproximada, doação direta via PIX e inscrição como voluntário — além do cadastro e verificação de documentos das ONGs.",
+      tags: ["Geolocalização", "Filtros por causa", "PIX", "Acessibilidade"],
+      image: conectaOng,
+      ...projectLinks.conectaOng,
     },
   ],
   en: [
     {
-      name: "Story Vision",
-      year: "2023",
-      category: "Web · Generative AI",
+      name: "SoundRangers",
+      year: "2026",
+      category: "Web · Data platform",
       description:
-        "A web app that writes a story from a user's prompt, returning story snippets with a generated image for each one.",
-      tags: ["React", "OpenAI API", "SCSS"],
-      image: storyVision,
-      source_code_link: "https://github.com/maikermenezes/story-vision",
+        "Internal music-royalty reporting tool: imports platform CSVs and reconciles every play, claim and payout, showing each creator's earnings across the whole catalog.",
+      tags: ["Dashboard", "CSV import", "Reconciliation", "Auth"],
+      image: soundrangers,
+      ...projectLinks.soundrangers,
     },
     {
-      name: "flAshI",
-      year: "2023",
-      category: "Mobile · Education",
+      name: "Move's",
+      category: "Mobile · Accessible tourism",
       description:
-        "A language-learning app that automatically builds flashcards from a word, with a card for each meaning and images to illustrate them.",
-      tags: ["React Native", "Node.js", "OpenAI API"],
-      image: flashi,
-      source_code_link: "https://github.com/maikermenezes/cria-comp-autoral",
+        "Inclusive tourism app for people with reduced mobility: detailed accessibility info for attractions, restaurants, hotels and transport, plus pet-friendly places and their rules.",
+      tags: ["Android", "Accessibility", "Search & filters"],
+      image: moves,
+      ...projectLinks.moves,
+    },
+    {
+      name: "Germinar · Digital Games",
+      category: "Web · Education · Social project",
+      description:
+        "Educational games platform for Programa Germinar, Gerdau's social project. Games are organized into three learning levels to teach in a fun way.",
+      tags: ["Educational games", "Learning levels", "Social impact"],
+      image: germinar,
+      ...projectLinks.germinar,
+    },
+    {
+      name: "Conecta ONG",
+      category: "Web · University project · CIn-UFPE",
+      description:
+        "Connects people with verified NGOs near them: filter by cause, approximate location, direct PIX donations and volunteer sign-up — plus NGO registration with document verification.",
+      tags: ["Geolocation", "Cause filters", "PIX", "Accessibility"],
+      image: conectaOng,
+      ...projectLinks.conectaOng,
     },
   ],
 };

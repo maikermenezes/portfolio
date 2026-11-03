@@ -1,17 +1,19 @@
 import { useRef } from "react";
 import { motion, useMotionValue, useScroll, useSpring, useTransform } from "framer-motion";
-import { FaGithub } from "react-icons/fa";
-import { HiArrowUpRight } from "react-icons/hi2";
+import { FaGithub, FaGooglePlay } from "react-icons/fa";
+import { HiArrowUpRight, HiOutlineGlobeAlt, HiOutlineLockClosed } from "react-icons/hi2";
 
 import { projects, projectsText, socialLinks, ui } from "../constants";
 import { useLanguage } from "../hooks/useLanguage";
 import { EASE_IN_OUT, EASE_OUT_EXPO } from "../utils/motion";
 import SectionHeading from "./ui/SectionHeading";
 
-const ProjectVisual = ({ image, name, link, viewLabel }) => {
+const linkIcons = { live: HiOutlineGlobeAlt, store: FaGooglePlay, code: FaGithub, internal: HiOutlineLockClosed };
+
+const ProjectVisual = ({ image, name, link, host, viewLabel }) => {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
-  const imgY = useTransform(scrollYProgress, [0, 1], ["-8%", "8%"]);
+  const imgY = useTransform(scrollYProgress, [0, 1], ["-4%", "4%"]);
 
   const rx = useMotionValue(0);
   const ry = useMotionValue(0);
@@ -30,14 +32,16 @@ const ProjectVisual = ({ image, name, link, viewLabel }) => {
     ry.set(0);
   };
 
+  // Projects without a public link render as a plain (non-clickable) frame.
+  const Frame = link ? motion.a : motion.div;
+  const linkProps = link
+    ? { href: link, target: "_blank", rel: "noreferrer", "data-cursor": viewLabel, "aria-label": `${name} — ${host}` }
+    : {};
+
   return (
     <div ref={ref} style={{ perspective: 1200 }}>
-      <motion.a
-        href={link}
-        target="_blank"
-        rel="noreferrer"
-        data-cursor={viewLabel}
-        aria-label={`${name} — GitHub`}
+      <Frame
+        {...linkProps}
         onMouseMove={onMove}
         onMouseLeave={reset}
         style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
@@ -52,8 +56,9 @@ const ProjectVisual = ({ image, name, link, viewLabel }) => {
           <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
           <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
           <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
-          <span className="mx-auto max-w-[60%] truncate rounded-full bg-white/[0.05] px-4 py-1 font-mono text-[10px] text-muted">
-            github.com/maikermenezes
+          <span className="mx-auto flex max-w-[60%] items-center gap-1.5 truncate rounded-full bg-white/[0.05] px-4 py-1 font-mono text-[10px] text-muted">
+            {!link && <HiOutlineLockClosed className="shrink-0" />}
+            {host}
           </span>
         </div>
         <div className="relative aspect-[16/10] overflow-hidden rounded-[20px]">
@@ -61,24 +66,27 @@ const ProjectVisual = ({ image, name, link, viewLabel }) => {
             src={image}
             alt={name}
             loading="lazy"
-            style={{ y: imgY, scale: 1.18 }}
-            className="absolute inset-0 h-full w-full object-cover object-top transition-[filter] duration-700 group-hover:brightness-110"
+            style={{ y: imgY }}
+            className="absolute inset-x-0 -top-[5%] h-[110%] w-full object-cover object-center transition-[filter] duration-700 group-hover:brightness-110"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-ink-950/50 via-transparent to-transparent opacity-80 transition-opacity duration-500 group-hover:opacity-30" />
           <div className="absolute inset-0 bg-teal/0 mix-blend-color transition-colors duration-700 group-hover:bg-teal/10" />
         </div>
-      </motion.a>
+      </Frame>
     </div>
   );
 };
 
-const ProjectRow = ({ project, index, reverse, labels }) => (
+const ProjectRow = ({ project, index, reverse, labels }) => {
+  const LinkIcon = linkIcons[project.linkType] ?? HiArrowUpRight;
+  return (
   <article className="grid items-center gap-10 lg:grid-cols-12 lg:gap-16">
     <div className={`lg:col-span-7 ${reverse ? "lg:order-2" : ""}`}>
       <ProjectVisual
         image={project.image}
         name={project.name}
-        link={project.source_code_link}
+        link={project.link}
+        host={project.host}
         viewLabel={labels.view}
       />
     </div>
@@ -95,7 +103,7 @@ const ProjectRow = ({ project, index, reverse, labels }) => (
           <span className="text-teal">{String(index + 1).padStart(2, "0")}</span>
           <span className="h-px w-10 bg-line" />
           <span>{project.category}</span>
-          <span className="ml-auto">{project.year}</span>
+          {project.year && <span className="ml-auto">{project.year}</span>}
         </div>,
         <h3 key="name" className="mt-6 font-display text-5xl font-semibold tracking-tight text-fg sm:text-6xl">
           {project.name}
@@ -110,16 +118,25 @@ const ProjectRow = ({ project, index, reverse, labels }) => (
             </span>
           ))}
         </div>,
-        <a
-          key="link"
-          href={project.source_code_link}
-          target="_blank"
-          rel="noreferrer"
-          className="group mt-8 inline-flex items-center gap-3 border-b border-white/20 pb-1 font-medium text-fg transition-colors hover:border-teal hover:text-teal"
-        >
-          <FaGithub /> {labels.code}
-          <HiArrowUpRight className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-        </a>,
+        project.link ? (
+          <a
+            key="link"
+            href={project.link}
+            target="_blank"
+            rel="noreferrer"
+            className="group mt-8 inline-flex items-center gap-3 border-b border-white/20 pb-1 font-medium text-fg transition-colors hover:border-teal hover:text-teal"
+          >
+            <LinkIcon /> {labels.links[project.linkType]}
+            <HiArrowUpRight className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+          </a>
+        ) : (
+          <span
+            key="link"
+            className="mt-8 inline-flex items-center gap-2.5 rounded-full border border-line bg-white/[0.03] px-4 py-2 font-mono text-xs uppercase tracking-[0.15em] text-muted"
+          >
+            <LinkIcon /> {labels.links[project.linkType]}
+          </span>
+        ),
       ].map((child) => (
         <motion.div
           key={child.key}
@@ -133,7 +150,8 @@ const ProjectRow = ({ project, index, reverse, labels }) => (
       ))}
     </motion.div>
   </article>
-);
+  );
+};
 
 const Works = () => {
   const { language } = useLanguage();
@@ -163,7 +181,7 @@ const Works = () => {
               project={project}
               index={i}
               reverse={i % 2 === 1}
-              labels={{ view: ui[language].viewProject, code: t.code }}
+              labels={{ view: ui[language].viewProject, links: t.links }}
             />
           ))}
         </div>

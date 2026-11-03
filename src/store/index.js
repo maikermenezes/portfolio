@@ -9,9 +9,7 @@ const getInitialLanguage = () => {
   } catch {
     /* storage unavailable */
   }
-  if (typeof navigator !== "undefined" && navigator.language) {
-    return navigator.language.toLowerCase().startsWith("pt") ? "pt" : "en";
-  }
+  // Portuguese is the default; visitors can switch with the PT/EN toggle (remembered above).
   return "pt";
 };
 

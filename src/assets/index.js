@@ -18,8 +18,10 @@ import citi from "./company/citi.png";
 import facilit from "./company/facilit.png";
 import seedabit from "./company/seedabit.png";
 
-import storyVision from "./story-vision.png";
-import flashi from "./flashi.png";
+import germinar from "./germinar.jpg";
+import conectaOng from "./conecta-ong.jpg";
+import soundrangers from "./soundrangers.jpg";
+import moves from "./moves.jpg";
 
 import karina from "./karina.jpeg";
 import jona from "./jona.jpeg";
@@ -44,8 +46,10 @@ export {
   citi,
   facilit,
   seedabit,
-  storyVision,
-  flashi,
+  germinar,
+  conectaOng,
+  soundrangers,
+  moves,
   karina,
   jona,
   soph,
